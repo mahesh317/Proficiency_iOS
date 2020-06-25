@@ -47,23 +47,31 @@ class ServiceManager {
         guard let url = ServiceParamType.facts(baseUrl).url else {
             return
         }
-        AF.request(url).responseData(completionHandler: { (response) in
+        
+        AF.request(url, method: .get ,encoding: JSONEncoding.default).responseData(completionHandler: { (response) in
+            if let error = response.error {
+                callback(.failure(error))
+                return
+            }
+            guard let responseData = response.data else{
+                return
+            }
+                        
+            let responseStrInISOLatin = String(data: responseData, encoding: String.Encoding.isoLatin1)
+            guard let modifiedDataInUTF8Format = responseStrInISOLatin?.data(using: String.Encoding.utf8) else {
+                print("could not convert data to UTF-8 format")
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .useDefaultKeys
+                let facts = try decoder.decode(Facts.self, from: modifiedDataInUTF8Format)
+                callback(.success(facts))
+            } catch (let exception){
+                print(exception.localizedDescription)
+                callback(.failure(exception))
+            }
             
-                       if let error = response.error {
-                           callback(.failure(error))
-                           return
-                       }
-                       guard let responseData = response.data else{
-                           return
-                       }
-                       do {
-                           let decoder = JSONDecoder()
-                           let facts = try decoder.decode(Facts.self, from: responseData)
-                           callback(.success(facts))
-                       } catch (let exception){
-                           print(exception.localizedDescription)
-                           callback(.failure(exception))
-                       }
         })
         
         
