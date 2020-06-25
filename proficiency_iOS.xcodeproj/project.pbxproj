@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		CE161DB124A3C02800BCD257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE161DAF24A3C02800BCD257 /* LaunchScreen.storyboard */; };
 		CE161DBC24A3C02800BCD257 /* proficiency_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DBB24A3C02800BCD257 /* proficiency_iOSTests.swift */; };
 		CE161DC724A3C02800BCD257 /* proficiency_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DC624A3C02800BCD257 /* proficiency_iOSUITests.swift */; };
+		CE161DD524A4618A00BCD257 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DD424A4618A00BCD257 /* ImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CE161DC224A3C02800BCD257 /* proficiency_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = proficiency_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE161DC624A3C02800BCD257 /* proficiency_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proficiency_iOSUITests.swift; sourceTree = "<group>"; };
 		CE161DC824A3C02800BCD257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE161DD424A4618A00BCD257 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		D2269B89BADC5B7FE436B5DC /* Pods_proficiency_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proficiency_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE2AF306B7550059AE846EB /* Pods-proficiency_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proficiency_iOS.release.xcconfig"; path = "Target Support Files/Pods-proficiency_iOS/Pods-proficiency_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FA6F68846AB5F55DB9BB41D9 /* Pods-proficiency_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proficiency_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-proficiency_iOSTests/Pods-proficiency_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +103,6 @@
 				C2AA3B1EEDB8B0E54C11176E /* Pods-proficiency_iOSUITests.debug.xcconfig */,
 				7A8C5BC87DB35289352E6330 /* Pods-proficiency_iOSUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,6 +134,7 @@
 				CE161DA424A3C02700BCD257 /* AppDelegate.swift */,
 				CE161DA624A3C02700BCD257 /* SceneDelegate.swift */,
 				CE161DA824A3C02700BCD257 /* ViewController.swift */,
+				CE161DD424A4618A00BCD257 /* ImageDownloader.swift */,
 				CE161DAA24A3C02700BCD257 /* Main.storyboard */,
 				CE161DAD24A3C02800BCD257 /* Assets.xcassets */,
 				CE161DAF24A3C02800BCD257 /* LaunchScreen.storyboard */,
@@ -392,6 +394,7 @@
 			files = (
 				CE161DA924A3C02700BCD257 /* ViewController.swift in Sources */,
 				CE161DA524A3C02700BCD257 /* AppDelegate.swift in Sources */,
+				CE161DD524A4618A00BCD257 /* ImageDownloader.swift in Sources */,
 				CE161DA724A3C02700BCD257 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
