@@ -145,17 +145,14 @@
 		CE161DA324A3C02700BCD257 /* proficiency_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CE161DE624A48DC900BCD257 /* ViewController */,
+				CE161DE824A48E1A00BCD257 /* ViewModel */,
+				CE161DE924A48E5500BCD257 /* Datasource */,
+				CE161DEA24A48E8800BCD257 /* Model */,
+				CE161DEB24A48EAB00BCD257 /* ServiceManager */,
+				CE161DEC24A48FB000BCD257 /* Extension */,
+				CE161DED24A48FC500BCD257 /* Utility */,
 				CE161DA424A3C02700BCD257 /* AppDelegate.swift */,
-				CE161DA824A3C02700BCD257 /* ViewController.swift */,
-				CE161DDA24A465D900BCD257 /* FactsCollectionViewCell.swift */,
-				CE161DD424A4618A00BCD257 /* ImageDownloader.swift */,
-				CE161DE024A468C800BCD257 /* FactsViewModel.swift */,
-				CE161DE224A4860700BCD257 /* RowViewModel.swift */,
-				CE161DD624A4635C00BCD257 /* ServiceManager.swift */,
-				CE161DDC24A4664400BCD257 /* FactDataSource.swift */,
-				CE161DD824A463D200BCD257 /* Facts.swift */,
-				CE161DDE24A4680A00BCD257 /* Box.swift */,
-				CE161DE424A486ED00BCD257 /* Extension.swift */,
 				CE161DAA24A3C02700BCD257 /* Main.storyboard */,
 				CE161DAD24A3C02800BCD257 /* Assets.xcassets */,
 				CE161DAF24A3C02800BCD257 /* LaunchScreen.storyboard */,
@@ -180,6 +177,73 @@
 				CE161DC824A3C02800BCD257 /* Info.plist */,
 			);
 			path = proficiency_iOSUITests;
+			sourceTree = "<group>";
+		};
+		CE161DE624A48DC900BCD257 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DA824A3C02700BCD257 /* ViewController.swift */,
+				CE161DE724A48DE800BCD257 /* Cell */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE161DE724A48DE800BCD257 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DDA24A465D900BCD257 /* FactsCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CE161DE824A48E1A00BCD257 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DE024A468C800BCD257 /* FactsViewModel.swift */,
+				CE161DE224A4860700BCD257 /* RowViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE161DE924A48E5500BCD257 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DDC24A4664400BCD257 /* FactDataSource.swift */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
+		CE161DEA24A48E8800BCD257 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DD824A463D200BCD257 /* Facts.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE161DEB24A48EAB00BCD257 /* ServiceManager */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DD424A4618A00BCD257 /* ImageDownloader.swift */,
+				CE161DD624A4635C00BCD257 /* ServiceManager.swift */,
+			);
+			path = ServiceManager;
+			sourceTree = "<group>";
+		};
+		CE161DEC24A48FB000BCD257 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DE424A486ED00BCD257 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CE161DED24A48FC500BCD257 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CE161DDE24A4680A00BCD257 /* Box.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		DE64F3C6019ED58667F9DF38 /* Frameworks */ = {

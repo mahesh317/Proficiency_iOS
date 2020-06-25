@@ -74,7 +74,6 @@ class FactsCollectionViewCell: UICollectionViewCell {
             self.factImage.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: padding),
             self.factImage.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: -padding),
             self.factImage.widthAnchor.constraint(equalToConstant: FactsCollectionViewCell.CellSize.width),
-//            self.factImage.heightAnchor.constraint(lessThanOrEqualToConstant: 220),
             self.factTitle.topAnchor.constraint(greaterThanOrEqualTo: factImage.bottomAnchor, constant: padding),
             self.factTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
             self.factTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
