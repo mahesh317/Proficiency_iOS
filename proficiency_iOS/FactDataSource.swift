@@ -10,10 +10,20 @@ import UIKit
 
 class FactDataSource: NSObject, UICollectionViewDataSource {
     
-    private var rows:[Rows] = []
+    private var rows:[RowViewModel] = []
     
-    func updateRows(_ rows:[Rows]){
+    func updateRows(_ rows:[RowViewModel]){
         self.rows = rows
+    }
+    
+    func updateRowImage(_ image:UIImage?, forRow row:Int) -> Bool{
+        let item = self.rows[row]
+        if item.image == UIImage(named: "placeholder"){
+            item.updateImage(image)
+            return true
+        }
+        return false
+                
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -22,8 +32,7 @@ class FactDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FactsCollectionViewCell.reuseIdentifier, for: indexPath) as! FactsCollectionViewCell
-        
+        cell.configure(rows[indexPath.row])
         return cell
     }
-
 }

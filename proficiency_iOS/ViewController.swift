@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     var collectionViewDatasource = FactDataSource()
     var collectionView:UICollectionView!
     var factViewModel = FactsViewModel()
+    var imageDownloaders = Set<ImageDownloader>()
+    let flowLayout = UICollectionViewFlowLayout()
     
     override func loadView() {
         self.view = UIView(frame: UIScreen.main.bounds)
@@ -59,52 +61,92 @@ class ViewController: UIViewController {
         
             present(alert, animated: true, completion: nil)
         
-        
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+              super.traitCollectionDidChange(previousTraitCollection)
     }
     
     
     func createCollectionView() {
-        let flowLayout = UICollectionViewFlowLayout()
+            
 
-        // Now setup the flowLayout required for drawing the cells
-        let space = 5.0 as CGFloat
+            // Now setup the flowLayout required for drawing the cells
+            let space = 5.0 as CGFloat
 
-        // Set view cell size
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 200)
+            // Set view cell size
+    //        flowLayout.itemSize = FactsCollectionViewCell.CellSize
 
-        // Set left and right margins
-        flowLayout.minimumInteritemSpacing = space
+            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 
-        // Set top and bottom margins
-        flowLayout.minimumLineSpacing = space
+            // Set left and right margins
+            flowLayout.minimumInteritemSpacing = space
 
-        // Finally create the CollectionView
-        collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: flowLayout)
+            // Set top and bottom margins
+            flowLayout.minimumLineSpacing = space
+            
 
-        // Then setup delegates, background color etc.
-        
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.insetsLayoutMarginsFromSafeArea = true
-        collectionView.backgroundColor = UIColor.white
-        view.addSubview(collectionView)
-        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        collectionView.backgroundColor = .red
-        collectionView.dataSource = collectionViewDatasource
-        
-        
-        view.layoutIfNeeded()
-        
-        
-    }
+            // Finally create the CollectionView
+            collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+
+            // Then setup delegates, background color etc.
+            
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.insetsLayoutMarginsFromSafeArea = true
+            collectionView.backgroundColor = UIColor.white
+            view.addSubview(collectionView)
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:0).isActive = true
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+            collectionView.dataSource = collectionViewDatasource
+            collectionView.delegate = self
+            collectionView.register(FactsCollectionViewCell.self, forCellWithReuseIdentifier: FactsCollectionViewCell.reuseIdentifier)
+            
+            view.layoutIfNeeded()
+        }
+    
+    override func viewWillLayoutSubviews() {
+           super.viewWillLayoutSubviews()
+           collectionView.collectionViewLayout.invalidateLayout()
+           collectionView.reloadData()
+       }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.bindUI()
     }
 
+}
 
+extension ViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if let url = factViewModel.getImageUrl(indexPath){
+            // fetch from already cache image
+            if let imageDownloader = imageDownloaders.filter({ $0.imageUrl == url && $0.imageCache != nil}).first{
+                if self.collectionViewDatasource.updateRowImage(imageDownloader.imageCache, forRow: indexPath.row){
+                    DispatchQueue.main.async{
+                        self.collectionView.reloadItems(at: [indexPath])
+                    }
+                }
+            }else{
+                // fetch new imageim
+                let downloader = ImageDownloader.init(url) { (image) in
+                    if self.collectionViewDatasource.updateRowImage(image, forRow: indexPath.row){
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadItems(at: [indexPath])
+                        }
+                    }
+                }
+                imageDownloaders.insert(downloader)
+            }
+        }
+    }
+        
+    
+    
 }
 
