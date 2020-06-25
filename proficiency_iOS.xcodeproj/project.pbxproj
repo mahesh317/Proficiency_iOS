@@ -23,6 +23,8 @@
 		CE161DD924A463D200BCD257 /* Facts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DD824A463D200BCD257 /* Facts.swift */; };
 		CE161DDB24A465D900BCD257 /* FactsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DDA24A465D900BCD257 /* FactsCollectionViewCell.swift */; };
 		CE161DDD24A4664400BCD257 /* FactDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DDC24A4664400BCD257 /* FactDataSource.swift */; };
+		CE161DDF24A4680A00BCD257 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DDE24A4680A00BCD257 /* Box.swift */; };
+		CE161DE124A468C800BCD257 /* FactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE161DE024A468C800BCD257 /* FactsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		CE161DD824A463D200BCD257 /* Facts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facts.swift; sourceTree = "<group>"; };
 		CE161DDA24A465D900BCD257 /* FactsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE161DDC24A4664400BCD257 /* FactDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactDataSource.swift; sourceTree = "<group>"; };
+		CE161DDE24A4680A00BCD257 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		CE161DE024A468C800BCD257 /* FactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsViewModel.swift; sourceTree = "<group>"; };
 		D2269B89BADC5B7FE436B5DC /* Pods_proficiency_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proficiency_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAE2AF306B7550059AE846EB /* Pods-proficiency_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proficiency_iOS.release.xcconfig"; path = "Target Support Files/Pods-proficiency_iOS/Pods-proficiency_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FA6F68846AB5F55DB9BB41D9 /* Pods-proficiency_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proficiency_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-proficiency_iOSTests/Pods-proficiency_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,9 +148,11 @@
 				CE161DA824A3C02700BCD257 /* ViewController.swift */,
 				CE161DDA24A465D900BCD257 /* FactsCollectionViewCell.swift */,
 				CE161DD424A4618A00BCD257 /* ImageDownloader.swift */,
+				CE161DE024A468C800BCD257 /* FactsViewModel.swift */,
 				CE161DD624A4635C00BCD257 /* ServiceManager.swift */,
 				CE161DDC24A4664400BCD257 /* FactDataSource.swift */,
 				CE161DD824A463D200BCD257 /* Facts.swift */,
+				CE161DDE24A4680A00BCD257 /* Box.swift */,
 				CE161DAA24A3C02700BCD257 /* Main.storyboard */,
 				CE161DAD24A3C02800BCD257 /* Assets.xcassets */,
 				CE161DAF24A3C02800BCD257 /* LaunchScreen.storyboard */,
@@ -404,7 +410,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE161DDF24A4680A00BCD257 /* Box.swift in Sources */,
 				CE161DDD24A4664400BCD257 /* FactDataSource.swift in Sources */,
+				CE161DE124A468C800BCD257 /* FactsViewModel.swift in Sources */,
 				CE161DDB24A465D900BCD257 /* FactsCollectionViewCell.swift in Sources */,
 				CE161DA924A3C02700BCD257 /* ViewController.swift in Sources */,
 				CE161DD924A463D200BCD257 /* Facts.swift in Sources */,
